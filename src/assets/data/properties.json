@@ -1,4 +1,4 @@
-export const properties = [
+[
   {
     "id": 1,
     "type": "Condo",

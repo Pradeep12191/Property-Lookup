@@ -1,9 +1,14 @@
 
-<div *ngFor="let property of properties" class="col-sm-4">
-  <div class="thumbnail">
-    <img src="assets/images/{{ property.image }}.jpg"/>
-    <h3>{{ property.address }}</h3>
-    <h4>{{ property.price }}</h4>
-    <p>{{ property.type }}</p>
-  </div>
+<div>
+  <ul class="list-group" *ngFor="let property of properties | async">
+    <li class="list-group-item list-group-item">
+      {{property.address}}
+      <span class="badge" title="show details" (click) = "gotoDetail(property.id)">
+          <i class="glyphicon glyphicon-arrow-right"></i>
+      </span>
+      <span class="badge">
+        <i class="glyphicon glyphicon-tag"></i>{{property.price | currency:'USD':true}}
+      </span>
+    </li>
+</ul>
 </div>

@@ -4,6 +4,19 @@
   </div>
 </nav>
 
+
+
 <div class="container">
-  <property-listing></property-listing>
+  <ul class="nav nav-pills nav-justified">
+  <li routerLinkActive = "active">
+    <a routerLink="/dashboard">Dashboard</a>
+  </li>
+  <li routerLinkActive = "active">
+    <a routerLink="/properties">Property List</a>
+  </li>
+</ul>
+
+<div style="margin-bottom:10px;"></div>
+  <!--<property-listing></property-listing>-->
+  <router-outlet></router-outlet>
 </div>

@@ -1,3 +1,57 @@
-<p>
-  property-details works!
-</p>
+
+  <div class="thumbnail">
+    <img src="assets/images/{{ property.image }}.jpg"/>
+
+    <div class="caption">
+      <div *ngIf="!property.showDetails">
+        <h4>
+          <span class="label label-primary">
+            {{ property.type }}
+          </span>
+        </h4>
+        <h3>
+          <i class="glyphicon glyphicon-tag"></i>
+          {{ property.price | currency:'USD':true}}
+        </h3>
+        <h4>
+          <i class="glyphicon glyphicon-home"></i>
+          {{ property.address }}
+        </h4>
+
+        <hr />
+
+        <button class="btn btn-sm btn-success"
+                (click) = "property.showDetails = !property.showDetails">
+          Details
+        </button>
+      </div>
+
+    </div>
+
+<div *ngIf="property.showDetails">
+    <div class="details">
+
+      <h4>
+        <span class="label label-primary">
+          Beds : {{ property.bedrooms }}
+        </span>
+        <span class="label label-primary">
+          Baths : {{ property.bathrooms }}
+        </span>
+        <span class="label label-primary">
+          SqFt : {{ property.area }}
+        </span>
+      </h4>
+
+      <p>{{ property.description }}</p>
+
+      <hr />
+
+      <button class="btn btn-sm btn-danger"
+              (click) = "property.showDetails = !property.showDetails">
+        Close
+      </button>
+
+    </div>
+</div>
+  </div>
