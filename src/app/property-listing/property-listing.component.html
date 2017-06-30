@@ -1,0 +1,9 @@
+
+<div *ngFor="let property of properties" class="col-sm-4">
+  <div class="thumbnail">
+    <img src="assets/images/{{ property.image }}.jpg"/>
+    <h3>{{ property.address }}</h3>
+    <h4>{{ property.price }}</h4>
+    <p>{{ property.type }}</p>
+  </div>
+</div>
