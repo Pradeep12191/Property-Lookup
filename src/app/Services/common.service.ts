@@ -43,4 +43,10 @@ export class CommonService<T> implements ICommonService<T>{
                         .catch(this.errorService.handleError)
     }
 
+    add(object:T):Observable<T>{
+        return this.http.post(this.url, JSON.stringify(object))
+                        .map((response:any) => response.json().data as T)
+                        .catch(this.errorService.handleError)
+    }
+
 }

@@ -1,5 +1,5 @@
 
-  <div class="thumbnail">
+  <div class="thumbnail" style="overflow:hidden">
     <img src="assets/images/{{ property.image }}.jpg"/>
 
     <div class="caption">
@@ -28,7 +28,7 @@
 
     </div>
 
-<div *ngIf="property.showDetails">
+<div *ngIf="property.showDetails" [@SlideUp]>
     <div class="details">
 
       <h4>

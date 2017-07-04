@@ -6,4 +6,5 @@ export interface ICommonService<T>  {
     getById(id:number):Observable<T>;
     update(id:number, object:T):Observable<T>;
     delete(id:number):Promise<T>;
+    add(object:T):Observable<T>;
 }

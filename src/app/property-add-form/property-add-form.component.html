@@ -1,0 +1,60 @@
+<div class="alert alert-warning">
+  <p>* Validation coming soon </p>
+  <p>* Image will be default </p>
+</div>
+<form #propertyAddForm="ngForm" name="propertyAddForm" class="panel panel-default" 
+      (ngSubmit)="addProperty(propertyAddForm.value)">
+  <div class="panel-body" style="background-color: #eee;">
+    <h4>New Property Form</h4>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input [(ngModel)] = "property.address" type="text" name="address" id="address" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select [(ngModel)] = "property.type" name="type" id="type" class="form-control">
+        <option value="">--select property type--</option>
+        <option [ngValue]="type" *ngFor="let type of propertyTypes">
+          {{type}}
+        </option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="price">Price</label>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input [(ngModel)] = "property.price" type="number" name="price" id="price" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="area">Area</label>
+          <div class="input-group">
+            <span class="input-group-addon">Sq.Ft</span>
+            <input [(ngModel)] = "property.area" type="number" name="area" id="area" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="bedrooms">Bedrooms</label>
+          <input [(ngModel)] = "property.bedrooms" type="number" name="bedrooms" id="bedrooms" class="form-control">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="bathrooms">Bathrooms</label>
+          <input [(ngModel)] = "property.bathrooms" type="number" name="bathrooms" id="bathrooms" class="form-control">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <input type="submit" class="btn btn-success btn-sm" value="Save" />
+  </div>
+</form>

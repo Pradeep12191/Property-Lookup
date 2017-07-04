@@ -21,3 +21,14 @@ export const SlideOut = trigger('SlideOut', [
         }))
     ])
 ])
+
+export const SlideUp = trigger('SlideUp', [
+    transition(':enter', [
+        style({
+            transform:'translateY(100%)'
+        }),
+        animate(200, style({
+            transform:'translateY(0%)'
+        }))
+    ])
+])

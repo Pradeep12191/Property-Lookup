@@ -1,4 +1,4 @@
-export interface Property {
+export class Property {
     id:number;
     type:string;
     price:number;

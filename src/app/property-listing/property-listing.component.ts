@@ -20,6 +20,7 @@ import { SlideIn, SlideOut} from 'app/animate/slide'
 export class PropertyListingComponent implements OnInit {
 
   properties:Property[]
+  btnText = "Add"
 
   constructor(
     private propertyService:PropertyService,
@@ -49,6 +50,10 @@ export class PropertyListingComponent implements OnInit {
         .then(() => {
           this.properties = this.properties.filter(p => p.id != id)
         })
+  }
+
+  onPropertyAdded(property:Property){
+    this.properties.push(property)
   }
 
 }

@@ -1,6 +1,10 @@
 
-<div>
-  <ul class="list-group">
+<div class="col-sm-6">
+   <property-add-form (propertyAdded) = "onPropertyAdded($event)"></property-add-form>
+</div>
+
+<div class="col-sm-6">
+  <ul class="list-group" style="overflow:hidden">
     <li class="list-group-item list-group-item" *ngFor="let property of properties" [@SlideOut]>
       {{property.address}}
       <span class="badge" title="show details" style="cursor:pointer" (click) = "gotoDetail(property.id)">
@@ -14,5 +18,11 @@
         <i class="glyphicon glyphicon-tag"></i>{{property.price | currency:'USD':true}}
       </span>
     </li>
-</ul>
+  </ul>
 </div>
+
+<!--<button class="btn btn-sm btn-default" (click) = "showForm=!showForm; btnText = btnText =='Add' ? 'Cancel' : 'Add'">
+  <i class="glyphicon glyphicon-plus"></i>
+  {{btnText}} Property
+</button>
+  <div style="margin-bottom:10px;"></div>-->

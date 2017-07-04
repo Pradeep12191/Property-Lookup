@@ -40,6 +40,10 @@ export class PropertyService {
   deleteProperty(id:number){
     return this.commonService.delete(id)
   }
+
+  addProperty(property:Property){
+    return this.commonService.add(property);
+  }
   
 
 }
