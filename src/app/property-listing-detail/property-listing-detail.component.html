@@ -12,7 +12,63 @@
           <img src="./assets/images/{{property.image}}.jpg" alt="">
         </div>
       </div>
-      <div class="col-sm-6"></div>
+      <div class="col-sm-6">
+        <form #propertyForm = "ngForm" name="propertyForm" (ngSubmit) = onPropertySubmit(propertyForm.value)>
+          <input type="hidden" name="id" [ngModel] ="property.id">
+          <input type="hidden" name="image" [ngModel] ="property.image">
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input class="form-control" type="text" id="address" name="address" [(ngModel)] = "property.address">
+          </div>
+          <div class="form-group">
+            <label for="type">Property Type</label>
+            <select  class="form-control" name="type" id="type" [(ngModel)] = "property.type">
+              <option [ngValue] = 'type' *ngFor="let type of propertyTypes">
+                {{type}}
+              </option>
+            </select>
+          </div>
+          <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="price">Price</label>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input [(ngModel)]="property.price" name="price" id="price" class="form-control" type="number">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="area">Area</label>
+              <div class="input-group">
+                <input [(ngModel)]="property.area" id="area" name="area" class="form-control" type="number">
+                <span class="input-group-addon">Sq.Ft</span>
+              </div>
+            </div>
+          </div>
+          </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="bedrooms">Bedrooms</label>
+              <input [(ngModel)]="property.bedrooms" name="bedrooms" id="bedrooms" class="form-control" type="number">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="bathrooms">Bathrooms</label>
+              <input [(ngModel)]="property.bathrooms" name="bathrooms" id="bathrooms" class="form-control" type="number">
+            </div>
+          </div>          
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea [(ngModel)]="property.description" id="description" name="description" class="form-control" rows="5"></textarea>
+          </div>
+          <input class="btn btn-success" type="submit" value="Save">
+        </form>
+      </div>
     </div>
   </div>
 

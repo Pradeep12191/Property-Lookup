@@ -1,10 +1,14 @@
 
 <div>
-  <ul class="list-group" *ngFor="let property of properties | async">
-    <li class="list-group-item list-group-item">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item" *ngFor="let property of properties" [@SlideOut]>
       {{property.address}}
-      <span class="badge" title="show details" (click) = "gotoDetail(property.id)">
+      <span class="badge" title="show details" style="cursor:pointer" (click) = "gotoDetail(property.id)">
           <i class="glyphicon glyphicon-arrow-right"></i>
+      </span>
+      <span class="badge pull-left" title="delete property" style="cursor:pointer"
+            (click) = "deleteProperty(property.id)">
+          <i class="glyphicon glyphicon-remove"></i>
       </span>
       <span class="badge">
         <i class="glyphicon glyphicon-tag"></i>{{property.price | currency:'USD':true}}

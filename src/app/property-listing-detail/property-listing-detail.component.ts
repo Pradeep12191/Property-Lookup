@@ -15,6 +15,8 @@ import 'rxjs/add/operator/switchMap'
 export class PropertyListingDetailComponent implements OnInit {
 
   property:Property;
+  propertyTypes:String[] = ["House", "Condo", "Duplex"];
+  propertyId:number;
 
   constructor(
     private propertyService:PropertyService,
@@ -23,12 +25,18 @@ export class PropertyListingDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.propertyId = +this.route.snapshot.paramMap.get('id');
     this.route.params.switchMap((params:Params) => this.propertyService.getProperty(+params['id']))
                                 .subscribe(property => this.property = property)
   }
 
   goBack(){
     this.location.back();
+  }
+
+  onPropertySubmit(value:Property){
+    this.propertyService.updateProperty(this.propertyId, value)
+                  .subscribe(data => this.location.back())
   }
 
 }

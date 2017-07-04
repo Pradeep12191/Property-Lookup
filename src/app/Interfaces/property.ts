@@ -8,5 +8,4 @@ export interface Property {
     bathrooms:number;
     area:number;
     image:string;
-
 }
